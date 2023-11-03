@@ -18,3 +18,27 @@ int CountArray(string[] array, int n) // Считаем количество с�
     }
     return count;
 }
+
+string[] ReliseArray(string[] input, int n) // Массив с заданным количеством символов
+{
+    string[] result = new string[CountArray(input, n)];
+    for (int i = 0, j = 0; i < input.Length; i++)
+    {
+        if (input[i].Length <= n)
+        {
+            result[j] = input[i];
+            j++;
+        }
+    }
+    return result;
+}
+
+Console.Clear();
+string[] input = InputArray();
+string[] output = ReliseArray(input, 3);
+Console.Clear();
+Console.WriteLine("Начальный строковый массив:");
+Console.WriteLine($"[{string.Join(", ", input)}]");
+Console.WriteLine();
+Console.WriteLine("Строковый массив с заданным числом символов:");
+Console.WriteLine($"[{string.Join(", ", output)}]");
